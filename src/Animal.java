@@ -2,25 +2,21 @@ import java.sql.Date;
 
 
 public class Animal {
+    private int id;
     private String nome;
     private String especie;
     private String raca;
     private Date dataNascimento;
     private double peso;
-    private Proprietario dono;
 
-    public Animal(String nome, String especie, String raca, Date data, double peso, Proprietario proprietario){
+    public Animal(String nome, String especie, String raca, Date data, double peso){
         this.nome=nome;
         this.especie=especie;
         this.raca=raca;
         this.dataNascimento=data;
         this.peso=peso;
-        this.dono=proprietario;
     }
 
-    public Proprietario getDono(){
-        return dono;
-    }
     public Date getDataNascimento(){
         return dataNascimento;
     }
@@ -37,4 +33,10 @@ public class Animal {
         return nome;
     }
 
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 }
