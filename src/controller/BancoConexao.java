@@ -1,3 +1,5 @@
+package controller;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -10,12 +12,17 @@ public class BancoConexao {
 
     public static Connection getConnection() throws SQLException {
         try {
+            Class.forName("org.postgresql.Driver");
+
             DriverManager.getConnection(URL, USER, PWD);
             System.out.println("Conexão efetuada com sucesso!");
             return DriverManager.getConnection(URL, USER, PWD);
         } catch (SQLException e) {
             System.err.println("Problema na conexao com o banco de dados: " + e.getMessage());
             throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Erro: " + e.getMessage());
         }
+        return getConnection();
     }
 }
