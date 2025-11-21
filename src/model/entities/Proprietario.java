@@ -1,3 +1,5 @@
+package model.entities;
+
 import java.util.Objects;
 
 public class Proprietario {
