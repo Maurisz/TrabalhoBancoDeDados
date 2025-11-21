@@ -1,3 +1,5 @@
+package Projeto.Entities;
+
 public class Proprietario {
     private String cpf;
     private String nome;

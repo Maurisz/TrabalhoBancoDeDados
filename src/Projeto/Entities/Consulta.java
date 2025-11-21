@@ -1,23 +1,25 @@
+package Projeto.Entities;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class Consulta {
     private Timestamp dataHora;
-    private Animal animal;
-    private Veterinario veterinario;
+    private int idAnimal;
+    private String idVeterinario;
     private String diagnostico;
     private BigDecimal valor;
 
-    public Consulta(Timestamp dataHora, Animal animal, Veterinario veterinario, String diagnostico, BigDecimal valor){
+    public Consulta(Timestamp dataHora, int idAnimal, String idVeterinario, String diagnostico, BigDecimal valor){
         this.dataHora=dataHora;
-        this.animal=animal;
-        this.veterinario=veterinario;
+        this.idAnimal= idAnimal;
+        this.idVeterinario =idVeterinario;
         this.diagnostico=diagnostico;
         this.valor=valor;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    public int getIdAnimal() {
+        return idAnimal;
     }
     public Timestamp getDataHora() {
         return dataHora;
@@ -28,8 +30,8 @@ public class Consulta {
     public BigDecimal getValor() {
         return valor;
     }
-    public Veterinario getVeterinario() {
-        return veterinario;
+    public String getIdVeterinario() {
+        return idVeterinario;
     }
 
     public void Remarcar(Timestamp data) {

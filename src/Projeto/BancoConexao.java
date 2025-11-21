@@ -1,10 +1,12 @@
+package Projeto;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BancoConexao {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/PetCare";
+    private static final String URL = "jdbc:postgresql://localhost:5432/clinicaveterinariadb";
     private static final String USER = "postgres";
     private static final String PWD = "postgres12022007";
 

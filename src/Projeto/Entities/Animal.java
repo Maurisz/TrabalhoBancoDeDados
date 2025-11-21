@@ -1,3 +1,6 @@
+package Projeto.Entities;
+
+import java.math.BigDecimal;
 import java.sql.Date;
 
 
@@ -7,9 +10,9 @@ public class Animal {
     private String especie;
     private String raca;
     private Date dataNascimento;
-    private double peso;
+    private BigDecimal peso;
 
-    public Animal(String nome, String especie, String raca, Date data, double peso){
+    public Animal(String nome, String especie, String raca, Date data, BigDecimal peso){
         this.nome=nome;
         this.especie=especie;
         this.raca=raca;
@@ -20,7 +23,7 @@ public class Animal {
     public Date getDataNascimento(){
         return dataNascimento;
     }
-    public double getPeso(){
+    public BigDecimal getPeso(){
         return peso;
     }
     public String getRaca(){

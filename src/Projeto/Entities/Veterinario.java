@@ -1,3 +1,5 @@
+package Projeto.Entities;
+
 public class Veterinario {
     private String nome;
     private String CRMV;
