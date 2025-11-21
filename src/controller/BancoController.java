@@ -1,3 +1,10 @@
+package controller;
+
+import model.entities.Animal;
+import model.entities.Consulta;
+import model.entities.Proprietario;
+import model.entities.Veterinario;
+
 import java.sql.*;
 
 public class BancoController {
