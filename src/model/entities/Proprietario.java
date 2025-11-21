@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Proprietario {
     private String cpf;
     private String nome;
@@ -16,7 +18,6 @@ public class Proprietario {
 
  
     public String getCpf() { return cpf; }
-    public void setCpf(String cpf) { this.cpf = cpf; }
 
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
@@ -29,4 +30,16 @@ public class Proprietario {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Proprietario that = (Proprietario) o;
+        return Objects.equals(cpf, that.cpf) && Objects.equals(nome, that.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cpf, nome);
+    }
 }

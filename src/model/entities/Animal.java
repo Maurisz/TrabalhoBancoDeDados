@@ -1,8 +1,9 @@
 import java.sql.Date;
+import java.util.Objects;
 
 
 public class Animal {
-    private int id;
+    protected int id;
     private String nome;
     private String especie;
     private String raca;
@@ -36,7 +37,40 @@ public class Animal {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return id == animal.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

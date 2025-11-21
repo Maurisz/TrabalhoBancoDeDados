@@ -6,7 +6,7 @@ public class BancoConexao {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/PetCare";
     private static final String USER = "postgres";
-    private static final String PWD = "postgres12022007";
+    private static final String PWD = "postgres";
 
     public static Connection getConnection() throws SQLException {
         try {
