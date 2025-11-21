@@ -1,3 +1,5 @@
+package model.entities;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
