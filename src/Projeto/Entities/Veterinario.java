@@ -25,4 +25,20 @@ public class Veterinario {
     public String getTelefone() {
         return telefone;
     }
+
+    public void setCRMV(String CRMV) {
+        this.CRMV = CRMV;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

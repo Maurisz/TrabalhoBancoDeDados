@@ -11,6 +11,16 @@ public class Animal {
     private String raca;
     private Date dataNascimento;
     private BigDecimal peso;
+    private String cpfDono;
+    private String nomeDono;
+
+    public String getNomeDono() {
+        return nomeDono;
+    }
+
+    public void setNomeDono(String nomeDono) {
+        this.nomeDono = nomeDono;
+    }
 
     public Animal(String nome, String especie, String raca, Date data, BigDecimal peso){
         this.nome=nome;
@@ -23,6 +33,27 @@ public class Animal {
     public Date getDataNascimento(){
         return dataNascimento;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setPeso(BigDecimal peso) {
+        this.peso = peso;
+    }
+
     public BigDecimal getPeso(){
         return peso;
     }
@@ -41,5 +72,13 @@ public class Animal {
     }
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCpfDono() {
+        return cpfDono;
+    }
+
+    public void setCpfDono(String cpfDono) {
+        this.cpfDono = cpfDono;
     }
 }
