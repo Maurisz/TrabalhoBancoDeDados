@@ -1,10 +1,10 @@
-package Projeto.DAO;
+package clinicaveterinariadb.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import Projeto.Entities.Veterinario;
+import clinicaveterinariadb.Entities.Veterinario;
 
 public class VeterinarioDAO {
     private final Connection conexao;
@@ -90,14 +90,20 @@ public class VeterinarioDAO {
         }
     }
 
-    public void delete(String chave) {
-        String sql = "DELETE FROM veterinarios WHERE crmv=?";
+    public void delete(String crmv) {
+        String sqlConsultas = "DELETE FROM consultas WHERE crmv_veterinario = ?";
+        String sqlVeterinario = "DELETE FROM veterinarios WHERE crmv = ?";
 
-        try (PreparedStatement statement = conexao.prepareStatement(sql)){
-            statement.setString(1, chave);
-            statement.executeUpdate();
+        try {
+            try (PreparedStatement stmt = conexao.prepareStatement(sqlConsultas)) {
+                stmt.setString(1, crmv);
+                stmt.executeUpdate();
+            }
 
-
+            try (PreparedStatement stmt = conexao.prepareStatement(sqlVeterinario)) {
+                stmt.setString(1, crmv);
+                stmt.executeUpdate();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

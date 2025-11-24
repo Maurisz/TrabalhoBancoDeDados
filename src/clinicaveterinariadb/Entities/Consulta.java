@@ -1,4 +1,4 @@
-package Projeto.Entities;
+package clinicaveterinariadb.Entities;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -12,6 +12,16 @@ public class Consulta {
     private BigDecimal valor;
     private String nomeAnimal;
     private String nomeVeterinario;
+
+    @Override
+    public String toString() {
+        return "\nID : "+id+
+                "\nData e Hora : "+dataHora+
+                "\nAnimal : "+nomeAnimal+
+                "\nDiagnóstico : "+diagnostico+
+                "\nValor : "+valor+
+                "\nNome Veterinário : "+nomeVeterinario;
+    }
 
     public String getNomeVeterinario() {
         return nomeVeterinario;

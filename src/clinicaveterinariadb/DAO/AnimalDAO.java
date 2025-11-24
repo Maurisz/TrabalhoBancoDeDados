@@ -1,6 +1,6 @@
-package Projeto.DAO;
+package clinicaveterinariadb.DAO;
 
-import Projeto.Entities.Animal;
+import clinicaveterinariadb.Entities.Animal;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -49,37 +49,37 @@ public class AnimalDAO {
         }
     }
 
-    public void updateNome(int id, String novoNome) {
-        exectuarUpdate("UPDATE animais SET nome = ? WHERE id = ?", id, novoNome);
+    public boolean updateNome(int id, String novoNome) {
+        return exectuarUpdate("UPDATE animais SET nome = ? WHERE id = ?", id, novoNome);
 
     }
 
-    public void updatePeso(int id, BigDecimal novoPeso) {
+    public boolean updatePeso(int id, BigDecimal novoPeso) {
         String sql = "UPDATE animais SET peso = ? WHERE id = ?";
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setBigDecimal(1, novoPeso);
             stmt.setInt(2, id);
-            stmt.executeUpdate();
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void updateEspecie(int id, String novaEspecie) {
-        exectuarUpdate("UPDATE animais SET especie = ? WHERE id = ?", id, novaEspecie);
+    public boolean updateEspecie(int id, String novaEspecie) {
+        return exectuarUpdate("UPDATE animais SET especie = ? WHERE id = ?", id, novaEspecie);
 
     }
 
-    public void updateRaca(int id, String novaRaca) {
-        exectuarUpdate("UPDATE animais SET raca = ? WHERE id = ?", id, novaRaca);
+    public boolean updateRaca(int id, String novaRaca) {
+        return exectuarUpdate("UPDATE animais SET raca = ? WHERE id = ?", id, novaRaca);
 
     }
 
-    public void exectuarUpdate(String sql, int chave, String novoValor) {
+    public boolean exectuarUpdate(String sql, int chave, String novoValor) {
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, novoValor);
             stmt.setInt(2, chave);
-            stmt.executeUpdate();
+            return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -125,15 +125,36 @@ public class AnimalDAO {
         return animais;
     }
 
-    public void delete(int chave) {
-        String sql = "DELETE FROM animais WHERE id=?";
+    public void delete(int idAnimal) {
+        String sqlConsultas = "DELETE FROM consultas WHERE id_animal = ?";
+        String sqlAnimal = "DELETE FROM animais WHERE id = ?";
 
-        try (PreparedStatement statement = conexao.prepareStatement(sql)){
-            statement.setInt(1, chave);
-            statement.executeUpdate();
+        try {
+            conexao.setAutoCommit(false);
+            try (PreparedStatement stmt = conexao.prepareStatement(sqlConsultas)) {
+                stmt.setInt(1, idAnimal);
+                stmt.executeUpdate();
+            }
+            try (PreparedStatement stmt = conexao.prepareStatement(sqlAnimal)) {
+                stmt.setInt(1, idAnimal);
+                stmt.executeUpdate();
+            }
+            conexao.commit();
+            System.out.println("Animal e suas consultas deletados com sucesso!");
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            try {
+                conexao.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            throw new RuntimeException("Erro ao deletar animal e suas consultas: " + e.getMessage(), e);
+        } finally {
+            try {
+                conexao.setAutoCommit(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

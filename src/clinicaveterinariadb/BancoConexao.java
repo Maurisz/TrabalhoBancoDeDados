@@ -1,4 +1,4 @@
-package Projeto;
+package clinicaveterinariadb;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

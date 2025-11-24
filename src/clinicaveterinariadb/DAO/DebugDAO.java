@@ -1,6 +1,6 @@
-package Projeto.DAO;
+package clinicaveterinariadb.DAO;
 
-import Projeto.Entities.*;
+import clinicaveterinariadb.Entities.*;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +21,7 @@ public class DebugDAO {
 
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.executeUpdate();
-            System.out.println("✅ Banco de dados limpo e IDs resetados!");
+            System.out.println("Banco de dados limpo e IDs resetados!");
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao resetar banco: " + e.getMessage(), e);
         }
@@ -63,7 +63,7 @@ public class DebugDAO {
             cDao.create(agora, "Vacinacao", new BigDecimal("80.00"), 3, "02");
 
             System.out.println("• Consultas agendadas.");
-            System.out.println("✅ DEBUG: Dados carregados com sucesso!");
+            System.out.println("DEBUG: Dados carregados com sucesso!");
 
         } catch (Exception e) {
             System.out.println("❌ Erro ao popular banco: " + e.getMessage());

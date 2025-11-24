@@ -1,4 +1,4 @@
-package Projeto.Entities;
+package clinicaveterinariadb.Entities;
 
 public class Veterinario {
     private String nome;
@@ -11,6 +11,14 @@ public class Veterinario {
         this.nome=nome;
         this.CRMV=CRMV;
         this.especialidade=especialidade;
+    }
+
+    @Override
+    public String toString() {
+        return  "\nNome : "+nome+
+                "\nCRMV : "+CRMV+
+                "\nEspecialidade : "+especialidade+
+                "\nTelefone : "+telefone;
     }
 
     public String getCRMV() {

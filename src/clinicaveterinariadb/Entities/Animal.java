@@ -1,4 +1,4 @@
-package Projeto.Entities;
+package clinicaveterinariadb.Entities;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -13,6 +13,17 @@ public class Animal {
     private BigDecimal peso;
     private String cpfDono;
     private String nomeDono;
+
+    @Override
+    public String toString() {
+        return "\nID : "+id+
+                "\nNome : "+nome+
+                "\nEspecie : "+especie+
+                "\nRaca : "+raca+
+                "\nData de Nascimento : "+dataNascimento+
+                "\nPeso : "+peso+
+                "\nNome do Dono : "+nomeDono;
+    }
 
     public String getNomeDono() {
         return nomeDono;

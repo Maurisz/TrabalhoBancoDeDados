@@ -1,4 +1,4 @@
-package Projeto.Entities;
+package clinicaveterinariadb.Entities;
 
 public class Proprietario {
     private String cpf;
@@ -6,6 +6,15 @@ public class Proprietario {
     private String telefone;
     private String endereco;
     private String email;
+
+    @Override
+    public String toString() {
+        return "\nNome : "+nome+
+                "\nCPF : "+cpf+
+                "\nTelefone : "+telefone+
+                "\nEndereço : "+endereco+
+                "\nEmail : "+email;
+    }
 
   
     public Proprietario(String cpf, String nome, String telefone, String endereco, String email) {

@@ -1,6 +1,6 @@
-package Projeto.DAO;
+package clinicaveterinariadb.DAO;
 
-import Projeto.Entities.Consulta;
+import clinicaveterinariadb.Entities.Consulta;
 
 import java.math.BigDecimal;
 import java.sql.*;
