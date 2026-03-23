@@ -99,15 +99,17 @@ public class Main {
 
     private static void menuCreate() {
         System.out.println("\n--- CADASTRO ---");
-        System.out.println("1 - Veterinário\n2 - Proprietário\n3 - Animal\n4 - Consulta");
+        System.out.println("1 - Veterinário\n2 - Proprietário\n3 - Animal\n4 - Consulta\n5 - Sair");
         int op = lerInt("Escolha: ");
-
-        switch (op) {
-            case 1 -> createVeterinario();
-            case 2 -> createProprietario();
-            case 3 -> createAnimal();
-            case 4 -> createConsulta();
-            default -> System.out.println("Opção inválida.");
+        while (op != 5) {
+            switch (op) {
+                case 1 -> createVeterinario();
+                case 2 -> createProprietario();
+                case 3 -> createAnimal();
+                case 4 -> createConsulta();
+                case 5 -> System.exit(0);
+                default -> System.out.println("Opção inválida.");
+            }
         }
     }
 
